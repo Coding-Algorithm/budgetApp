@@ -225,9 +225,6 @@ function editOrDelete(e){
   
 }
 
-console.log("How are you?")
-console.log("How are you?")
-
 ulLists.forEach((list) => list.addEventListener("click", editOrDelete))
 
 
