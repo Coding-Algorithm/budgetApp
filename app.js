@@ -217,7 +217,9 @@ submitBtn.addEventListener("click", addItem)
 
 function editOrDelete(e){
   let target = e.target;
+  if(target.className.contain(edit)){
   console.log(target.className)
+  }
   let listParent = target.parentElement.parentElement.parentElement
   let ulParent = listParent.parentElement
   
