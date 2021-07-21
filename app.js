@@ -150,8 +150,6 @@ function expensesActive(e){
 expensesBtn.addEventListener("click", expensesActive)
 
 function incomeActive(e){
-  console.log("Working....")
-  
   this.classList.add("active")
   expensesBtn.classList.remove("active")
   allBtn.classList.remove("active")
@@ -218,7 +216,6 @@ function updateArray(title, amount, type){
 submitBtn.addEventListener("click", addItem)
 
 
-/*
 
 function editOrDelete(e){
   let target = e.target;
@@ -233,8 +230,6 @@ function editOrDelete(e){
 console.log(ulLists)
 
 ulLists.forEach((list) => list.addEventListener("click", editOrDelete))
-
-*/
 
 
 
