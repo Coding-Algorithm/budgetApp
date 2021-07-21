@@ -135,8 +135,6 @@ function updateIOAmount(array){
 }
 
 function expensesActive(e){
-  console.log("Working....")
-  
   this.classList.add("active")
   incomeBtn.classList.remove("active")
   allBtn.classList.remove("active")
@@ -162,7 +160,7 @@ function incomeActive(e){
 incomeBtn.addEventListener("click", incomeActive)
 
 function allActive(e){
-  console.log("Working....")
+   
   
   this.classList.add("active")
   expensesBtn.classList.remove("active")
@@ -227,7 +225,8 @@ function editOrDelete(e){
   
 }
 
-console.log(ulLists)
+console.log("How are you?")
+console.log("How are you?")
 
 ulLists.forEach((list) => list.addEventListener("click", editOrDelete))
 
