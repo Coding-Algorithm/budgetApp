@@ -228,7 +228,7 @@ function editOrDelete(e){
   
 }
 
-ulLists.forEach((list) => list.addEventListener("click", editOrDelete))
+//ulLists.forEach((list) => list.addEventListener("click", editOrDelete))
 
 
 
