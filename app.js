@@ -220,10 +220,11 @@ function editOrDelete(e){
   if(target.className.contain(edit)){
   console.log(target.className)
   }
-  let listParent = target.parentElement.parentElement.parentElement
-  let ulParent = listParent.parentElement
   
-  ulParent.removeChild(listParent)
+  // let listParent = target.parentElement.parentElement.parentElement
+  // let ulParent = listParent.parentElement
+  
+  // ulParent.removeChild(listParent)
   
 }
 
