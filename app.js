@@ -34,8 +34,6 @@ console.log(giveUsername)
 username.innerText = giveUsername;
 
 
-
-
 function updateExpenses(array){
   expensesItems.innerHTML = "";
   array.forEach((item) =>{
