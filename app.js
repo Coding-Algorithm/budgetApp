@@ -25,6 +25,10 @@ let allItems = document.querySelector("#allItems");
 let ADD_ENTRY = JSON.parse(localStorage.getItem("budget_list")) || [];
 updator(ADD_ENTRY)
 
+let username = document.querySelector("#upperSection h1")
+
+
+
 
 function updateExpenses(array){
   expensesItems.innerHTML = "";
