@@ -29,6 +29,10 @@ let username = document.querySelector("#upperSection h1")
 
 console.log(username)
 
+let giveUsername = prompt("What is your username: ")
+
+username.innerText = giveUsername;
+
 
 
 
