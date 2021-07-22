@@ -27,6 +27,8 @@ updator(ADD_ENTRY)
 
 let username = document.querySelector("#upperSection h1")
 
+console.log(username)
+
 
 
 
