@@ -27,10 +27,10 @@ updator(ADD_ENTRY)
 
 let username = document.querySelector("#upperSection h1")
 
-console.log(username)
 
 let giveUsername = prompt("What is your username: ")
 
+console.log(giveUsername)
 username.innerText = giveUsername;
 
 
