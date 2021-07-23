@@ -22,16 +22,13 @@ let expensesItems = document.querySelector("#expensesItems");
 let incomeItems = document.querySelector("#incomeItems");
 let allItems = document.querySelector("#allItems");
 
-let ADD_ENTRY = JSON.parse(localStorage.getItem("budget_list")) || [];
-updator(ADD_ENTRY)
-
 let username = document.querySelector("#upperSection h1")
-
-
 let giveUsername = prompt("What is your username: ")
 
-console.log(giveUsername)
-username.innerText = giveUsername;
+let ADD_ENTRY = JSON.parse(localStorage.getItem(`${giveUsername}_list`)) || [];
+updator(ADD_ENTRY)
+
+username.innerText = giveUsername + "'s Budgets";
 
 
 function updateExpenses(array){
@@ -227,8 +224,9 @@ function updator(ADD_ENTRY){
   updateAll(ADD_ENTRY)
   updateIOAmount(ADD_ENTRY)
   
-   localStorage.setItem("budget_list", JSON.stringify(ADD_ENTRY))
-} 
+   localStorage.setItem(`${giveUsername}_list`, JSON.stringify(ADD_ENTRY))
+}
+
 
 function action(e){
   let target = e.target;
@@ -237,7 +235,7 @@ function action(e){
   let list= parentElement.parentElement.parentElement
   
   let listIndex;
-  
+ 
   ADD_ENTRY.forEach((item) => {
   let sentence = list.innerText;
   let word = item.title;
@@ -250,37 +248,29 @@ function action(e){
   let finalParent = list.parentElement
   
   if(parentElement.className == "delete"){
-    console.log("Deleted")
+    console.log(listIndex)
     finalParent.removeChild(list)
+
     ADD_ENTRY.splice(listIndex, 1) ;
+    indexUpdate(ADD_ENTRY)
     updator(ADD_ENTRY)
   }else if(parentElement.className == "edit"){
-    console.log("Edited")
-  console.log(ADD_ENTRY[listIndex].title)
     inputTitle.value = ADD_ENTRY[listIndex].title;
     inputAmount.value = ADD_ENTRY[listIndex].amount;
     finalParent.removeChild(list)
     ADD_ENTRY.splice(listIndex, 1) ;
+    indexUpdate(ADD_ENTRY)
     updator(ADD_ENTRY)
   }
- 
-  console.log(ADD_ENTRY);
-  console.log(ADD_ENTRY);
   
 }
-
-/* 
-function delIt(e){
-  let target = e.target;
-  console.log("Working..")
-  let listParent = target.parentElement.parentElement.parentElement
-  
-  let finalParent = listParent.parentElement
-  
-  finalParent.removeChild(listParent)
-  
-}
-*/
-
 
 ulList.forEach((item) => item.addEventListener("click", action))
+
+function indexUpdate(ADD_ENTRY){
+ let index = 0
+  ADD_ENTRY.forEach((item) => {
+  item.index = index
+  index++
+})
+}
