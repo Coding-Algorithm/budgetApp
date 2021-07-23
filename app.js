@@ -21,15 +21,32 @@ let submitBtn = document.querySelector("#form button");
 let expensesItems = document.querySelector("#expensesItems");
 let incomeItems = document.querySelector("#incomeItems");
 let allItems = document.querySelector("#allItems");
+let donateButton = document.querySelector("#donateButton")
+let donate = document.querySelector(".donate")
+let container = document.querySelector(".container")
+let close = document.querySelector(".close")
+
 
 let username = document.querySelector("#upperSection h1")
 let giveUsername = prompt("What is your username: ")
 
-let ADD_ENTRY = JSON.parse(localStorage.getItem(`${giveUsername}_list`)) || [];
+let ADD_ENTRY = JSON.parse(localStorage.getItem(`${giveUsername}_list`))|| [];
 updator(ADD_ENTRY)
 
 username.innerText = giveUsername + "'s Budgets";
 
+
+donateButton.addEventListener("click", showDonate)
+function showDonate(){
+  container.style.display = "none";
+  donate.style.display = "flex";
+}
+
+close.addEventListener("click", closeDonate)
+function closeDonate(){
+  donate.style.display = "none";
+  container.style.display = "block";
+}
 
 function updateExpenses(array){
   expensesItems.innerHTML = "";
@@ -138,8 +155,6 @@ function updateIOAmount(array){
   expensesAmount.innerText = "#"+ totalExpenses;
   balanceAmount.innerText = (balanceTotal < 0 ? "-#" : "#")+ (balanceTotal < 0 ? (balanceTotal.toString()). slice(1): balanceTotal);
   
-  // console.log(expensesAmounts)
-  // console.log(incomeAmounts)
 }
 
 function expensesActive(e){
@@ -209,10 +224,9 @@ function updateArray(title, amount, type){
   })
   
   ADD_ENTRY.forEach((item, index)=>{
-    //console.log(index)
     item.index = index;
   })
-    //console.log(ADD_ENTRY)
+   
   
   updator(ADD_ENTRY)
 }
@@ -274,3 +288,4 @@ function indexUpdate(ADD_ENTRY){
   index++
 })
 }
+
