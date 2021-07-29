@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget App</title>
+   <link rel="stylesheet" href="./style.css" media="all" />
+  </head>
+  <body>
+    
+       <section class="donate">
+         
+         <p>
+           ☺
+         <br>
+         <br>
+          ***
+           <br>
+           Thanks for your donation. It really do add up.
+           <br>
+           ***
+         </p>
+         
+         
+         <div class="acctDetails">
+           <h3>Account Details</h3>
+           <table>
+             <tr class="oddRow">
+               <td>Acct. Number</td>
+               <td>0252501826 </td>
+             </tr>
+             <tr>
+               <td>Acct. Name</td>
+               <td>Taofeek Ibrahim Opeyemi</td>
+             </tr>
+             <tr class="oddRow">
+               <td>Bank Name</td>
+               <td>GTBank</td>
+             </tr>
+           </table>
+         </div>
+         
+         <button class="close" type="submit">close</button>
+         
+         <footer class="credit">
+           Credit: <a href="#">Algorithm</a>
+         </footer>
+       </section>
+    <div class="container">
+      
+      <div id="upperSection">
+        <h1></h1>
+        
+       <div id="balanceContainer">
+         <p id="balanceTitle">Balance</p>
+         <p id="balanceAmount"></p>
+       </div>
+       
+         <button id="donateButton" type="submit">
+           Donate
+         </button>
+         
+      
+      <div class="outInContainer">
+        <div class="incomeContainer">
+          <p class="incomeTitle">Income</p>
+          <p class="incomeAmount"></p>
+        </div>
+        
+        <div class="chart">
+          
+        </div>
+        
+        <div class="expensesContainer">
+          <p class="expensesTitle">Expenses</p>
+          <p class="expensesAmount"></p>
+        </div>
+      </div>
+      </div>
+      
+      
+      <div id="dashboard">
+        
+        <h2 id="dashboardTitle">Dashboard</h2>
+        
+        <div class="tabButtonContainer">
+          <button type="button" id="expensesBtn" class="active">Expenses</button>
+         
+          <button type="button" id="incomeBtn">Income</button>
+         
+          <button type="button" id="allBtn">All</button>
+        </div>
+        
+        <div class="items">
+          
+         <ul class="show" id="expensesItems">
+           <li class="item">
+             <span class="info">
+             <p class="itemTitle"></p>
+             <p class="itemAmount"><span></span></p>
+             </span>
+             
+           <span class="actions">
+            <span class="edit">
+              <img src="./edit.png" alt="" />
+              </span>
+            <span class="delete">
+              <img src="./trash.png" alt="" />
+           </span>
+           </span>
+           </li>
+         </ul>
+          
+         <ul class="hide" id="incomeItems">
+           <li class="item">
+             <span class="info">
+             <p class="itemTitle"></p>
+             <p class="itemAmount"><span></span></p>
+             </span>
+             
+           <span class="actions">
+            <span class="edit">
+              <img src="./edit.png" alt="" />
+              </span>
+            <span class="delete">
+              <img src="./trash.png" alt="" />
+           </span>
+           </span>
+           </li>
+         </ul>
+          
+         <ul class="hide" id="allItems">
+           <li class="item">
+             <span class="info">
+             <p class="itemTitle"></p>
+             <p class="itemAmount"><span></span></p>
+             </span>
+             
+           <span class="actions">
+            <span class="edit">
+              <img src="./edit.png" alt="" />
+              </span>
+            <span class="delete">
+              <img src="./trash.png" alt="" />
+           </span>
+           </span>
+           </li>
+         </ul>
+         
+        </div>
+        
+        <div id="form">
+          
+          <input type="text" name="inputTitle" id="inputTitle" placeholder="Title" />
+          
+          <input type="number" name="inputAmount" id="inputAmount" placeholder="#1000" />
+          
+          <button type="submit">ADD</button>
+        </div>
+        
+      </div> 
+        
+    </div>
+    
+    <script src="./app.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./app2.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>
