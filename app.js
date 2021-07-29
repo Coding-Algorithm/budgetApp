@@ -132,6 +132,17 @@ function hide(element){
 function updateIOAmount(array){
   let incomeAmounts = [];
   let expensesAmounts = [];
+  let upperSection = document.querySelector("#upperSection")
+  let donateButton = document.querySelector("#donateButton")
+  
+  let red = () =>{
+    upperSection.style.backgroundColor = "rgb(162,16,16)"
+    donateButton.style.backgroundColor = "#096725"
+  }
+  let green = () =>{
+    upperSection.style.backgroundColor = "#096725"
+    donateButton.style.backgroundColor = "red"
+  }
   
   array.forEach((item) =>{
     if(item.type == "incomeBtn"){
@@ -154,6 +165,9 @@ function updateIOAmount(array){
   incomeAmount.innerText = "#" + totalIncome;
   expensesAmount.innerText = "#"+ totalExpenses;
   balanceAmount.innerText = (balanceTotal < 0 ? "-#" : "#")+ (balanceTotal < 0 ? (balanceTotal.toString()). slice(1): balanceTotal);
+  
+  (balanceTotal < 0) ? red() : green();
+  
   
 }
 
