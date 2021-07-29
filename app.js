@@ -25,17 +25,17 @@ let donateButton = document.querySelector("#donateButton")
 let donate = document.querySelector(".donate")
 let container = document.querySelector(".container")
 let close = document.querySelector(".close")
-
-
 let username = document.querySelector("#upperSection h1")
 let giveUsername = prompt("What is your username: ")
-
 let ADD_ENTRY = JSON.parse(localStorage.getItem(`${giveUsername}_list`))|| [];
 updator(ADD_ENTRY)
+let body = document.querySelector("body")
 
+
+
+body.style.height = window.innerHeight + 'px';
+body.style.width = window.innerWidth + 'px';
 username.innerText = giveUsername + "'s Budgets";
-
-
 donateButton.addEventListener("click", showDonate)
 function showDonate(){
   container.style.display = "none";

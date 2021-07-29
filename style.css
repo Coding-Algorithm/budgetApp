@@ -6,8 +6,8 @@
 body{
   font-family: helvetica;
   background: orange;
-  width: 100vw;
-  height: 500px;
+  height:0;
+  width: 0;
   display: flex;
   justify-content: center;
   align-content: center;
