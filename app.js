@@ -1,23 +1,29 @@
+
+//Login Section Variables
+let loginSection = document.querySelector("#loginSection")
+let loginSubmit = document.querySelector(".loginSubmit")
+let username = document.querySelector(".username")
+let getUsername = username.value
+let noUsername = document.querySelector(".noUsername")
+
+
+let afterLogin = document.querySelector("#afterLogin")
+let head = document.querySelector("#upperSection h1")
 let balanceAmount = document.querySelector("#balanceAmount");
 let incomeAmount = document.querySelector(".incomeAmount");
 let expensesAmount = document.querySelector(".expensesAmount");
-
 let ulList = document.querySelectorAll(".items ul")
-
 let expensesBtn = document.querySelector("#expensesBtn");
 let incomeBtn = document.querySelector("#incomeBtn");
 let allBtn = document.querySelector("#allBtn");
 let btnGroup = document.querySelectorAll(".tabButtonContainer button")
 Array.from(btnGroup)
-
 let edit = document.querySelectorAll(".edit")
 let del = document.querySelectorAll(".delete")
-
 let form = document.querySelector("#form")
 let inputTitle = document.querySelector("#inputTitle");
 let inputAmount = document.querySelector("#inputAmount");
 let submitBtn = document.querySelector("#form button");
-
 let expensesItems = document.querySelector("#expensesItems");
 let incomeItems = document.querySelector("#incomeItems");
 let allItems = document.querySelector("#allItems");
@@ -25,17 +31,47 @@ let donateButton = document.querySelector("#donateButton")
 let donate = document.querySelector(".donate")
 let container = document.querySelector(".container")
 let close = document.querySelector(".close")
-let username = document.querySelector("#upperSection h1")
-let giveUsername = prompt("What is your username: ")
-let ADD_ENTRY = JSON.parse(localStorage.getItem(`${giveUsername}_list`))|| [];
-updator(ADD_ENTRY)
 let body = document.querySelector("body")
+let ADD_ENTRY;
 
 
+//Login Section
+function checkLogin(){
+    username = document.querySelector(".username")
+    getUsername = username.value;
+    console.log(getUsername)
+  if (getUsername){
+  ADD_ENTRY = JSON.parse(localStorage.getItem(`${getUsername}_list`))|| [];
+    updator(ADD_ENTRY)
+    
+    head.innerText = getUsername + "'s Budgets";
+    afterLogin.style.display = "block";
+    donateButton.style.display = "block";
+    loginSection.style.height = 0;
+    noUsername.style.display = "none";
+    
+    
+  }else{
+    noUsername.style.display = "block";
+  }
+}
+loginSubmit.addEventListener("click", checkLogin)
 
-body.style.height = window.innerHeight + 'px';
-body.style.width = window.innerWidth + 'px';
-username.innerText = giveUsername + "'s Budgets";
+
+function check(){
+  if(getUsername){
+   ADD_ENTRY = JSON.parse(localStorage.getItem(`${getUsername}_list`))|| [];
+    updator(ADD_ENTRY)
+    head.innerText = getUsername + "'s Budgets";
+    afterLogin.style.display = "block";
+    donateButton.style.display = "block";
+    loginSection.style.height = 0;
+    noUsername.style.display = "none";
+  }
+}
+
+body.style.height = window.innerHeight+'px';
+body.style.width = window.innerWidth+'px';
 
 // Add and Remove Comma
 function addComma(num){
@@ -273,8 +309,11 @@ function updator(ADD_ENTRY){
   updateAll(ADD_ENTRY)
   updateIOAmount(ADD_ENTRY)
   
-   localStorage.setItem(`${giveUsername}_list`, JSON.stringify(ADD_ENTRY))
+   localStorage.setItem(`${getUsername}_list`, JSON.stringify(ADD_ENTRY))
+   
+   
 }
+console.log(getUsername)
 
 
 function action(e){

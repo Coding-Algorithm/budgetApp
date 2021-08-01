@@ -7,9 +7,43 @@
     <title>Budget App</title>
    <link rel="stylesheet" href="./style.css" media="all" />
   </head>
-  <body>
+  <body onload="check() ">
     
-       <section class="donate">
+    <section id="loginSection">
+      
+      <aside class="contents">
+        <p>
+           Welcome to
+        </p>
+        <h1 class="">
+          Budget App
+        </h1>
+      </aside>
+      
+      <div class="loginForm">
+          <p class="noUsername">
+            You have to give a username
+          </p>
+        <li>
+          <label for="username">Username</label>
+          
+          <input type="text" name="username" class="username" value="" />
+        </li>
+        <button class="loginSubmit" type="submit">Submit</button>
+      </div>
+      
+      <aside class="loginFooter">
+        <p class="aboutApp">
+          About App
+        </p>
+      </aside>
+      
+    </section>
+    
+    
+    <section id="afterLogin">
+      
+    <div class="donate">
          
          <p>
            ☺
@@ -46,7 +80,8 @@
          <footer class="credit">
            Credit: <a href="#">Algorithm</a>
          </footer>
-       </section>
+       </div>
+       
     <div class="container">
       
       <div id="upperSection">
@@ -78,7 +113,6 @@
         </div>
       </div>
       </div>
-      
       
       <div id="dashboard">
         
@@ -163,7 +197,8 @@
         
     </div>
     
-    <script src="./app.js" type="text/javascript" charset="utf-8"></script>
-    <script src="./app2.js" type="text/javascript" charset="utf-8"></script>
+    </section>
+    
+ <script src="./app.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
