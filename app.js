@@ -36,6 +36,21 @@ let body = document.querySelector("body")
 body.style.height = window.innerHeight + 'px';
 body.style.width = window.innerWidth + 'px';
 username.innerText = giveUsername + "'s Budgets";
+
+// Add and Remove Comma
+function addComma(num){
+  
+  let n = (typeof num == "string" ? parseInt(num) : num)
+  
+  let value = n.toLocaleString("en");
+  return value;
+}
+function removeComma(num){
+  let number = num.replace(/,/g,"");
+  return number
+}
+
+
 donateButton.addEventListener("click", showDonate)
 function showDonate(){
   container.style.display = "none";
@@ -56,7 +71,7 @@ function updateExpenses(array){
        <li class="item">
              <span class="info">
              <p class="itemTitle">${item.title} </p>
-             <p class="itemAmount"><span>#</span>${item.amount}</p>
+             <p class="itemAmount"><span>#</span>${addComma(item.amount)}</p>
              </span>
              
            <span class="actions">
@@ -80,7 +95,7 @@ function updateIncome(array){
        <li class="item">
              <span class="info">
              <p class="itemTitle">${item.title}</p>
-             <p class="itemAmount"><span>#</span>${item.amount}</p>
+             <p class="itemAmount"><span>#</span>${addComma(item.amount)}</p>
              </span>
              
            <span class="actions">
@@ -103,7 +118,7 @@ function updateAll(array){
        <li class="item">
              <span class="info">
              <p class="itemTitle">${item.title}</p>
-             <p class="itemAmount"><span>#</span>${item.amount}</p>
+             <p class="itemAmount"><span>#</span>${addComma(item.amount)}</p>
              </span>
              
            <span class="actions">
@@ -162,9 +177,14 @@ function updateIOAmount(array){
   
   balanceTotal = totalIncome - totalExpenses
   
-  incomeAmount.innerText = "#" + totalIncome;
-  expensesAmount.innerText = "#"+ totalExpenses;
-  balanceAmount.innerText = (balanceTotal < 0 ? "-#" : "#")+ (balanceTotal < 0 ? (balanceTotal.toString()). slice(1): balanceTotal);
+ /* totalIncome = addComma(totalIncome);
+  totalExpenses = addComma(totalExpenses);
+totalIncome = addComma(totalIncome);
+  */
+  
+  incomeAmount.innerText = "#" + addComma(totalIncome);
+  expensesAmount.innerText = "#"+ addComma(totalExpenses);
+  balanceAmount.innerText = (balanceTotal < 0 ? "-#" : "#")+ (balanceTotal < 0 ? addComma((balanceTotal.toString()).slice(1)) : addComma(balanceTotal));
   
   (balanceTotal < 0) ? red() : green();
   
@@ -237,6 +257,7 @@ function updateArray(title, amount, type){
     amount:amount
   })
   
+  
   ADD_ENTRY.forEach((item, index)=>{
     item.index = index;
   })
@@ -276,12 +297,17 @@ function action(e){
   let finalParent = list.parentElement
   
   if(parentElement.className == "delete"){
+    let answer = prompt('Do you really want to delete this?. Y - yes. N - no')
+  
+  //Checks if user truely wants to delete
+   if (answer == "Y"){
+     console.log(answer)
     console.log(listIndex)
     finalParent.removeChild(list)
-
     ADD_ENTRY.splice(listIndex, 1) ;
     indexUpdate(ADD_ENTRY)
     updator(ADD_ENTRY)
+   } 
   }else if(parentElement.className == "edit"){
     inputTitle.value = ADD_ENTRY[listIndex].title;
     inputAmount.value = ADD_ENTRY[listIndex].amount;
